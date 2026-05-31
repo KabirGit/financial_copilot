@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: financial-copilot-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: QDRANT_HOST
+        value: qdrant
+      - key: PYTHONPATH
+        value: /app
+
+  - type: web
+    name: financial-copilot-ui
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    startCommand: streamlit run ui/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: API_URL
+        fromService:
+          name: financial-copilot-api
+          type: web
+          property: host

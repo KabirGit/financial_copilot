@@ -1,0 +1,40 @@
+# Git
+.git/
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# Environment (secrets injected at runtime)
+.env
+
+# Data (mounted as volume or built inside container)
+data/raw/
+data/processed/
+data/qdrant_storage/
+
+# Tests (not needed in production image)
+tests/
+test_speed.py
+
+# Docs (not needed in production image)
+PROJECT_SUMMARY.md
+AGENTS.md
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Graphify
+graphify-out/
+.graphifyignore
+
+# Deploy configs
+deploy/

@@ -1,0 +1,15 @@
+# Large data files
+data/raw/
+data/processed/
+data/qdrant_storage/
+
+# Python artifacts
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Model cache
+.cache/
+
+# Node modules (if any)
+node_modules/
